@@ -100,22 +100,6 @@ namespace Web
             tiposTelefone.Add(new TipoTelefone(4, "FAX"));
         }
 
-        private void limpar()
-        {
-            this.pessoa = new Pessoa();
-
-            foreach (var control in this.Controls)
-            {
-                var textbox = control as TextBox;
-                if (textbox != null)
-                    textbox.Text = string.Empty;
-
-                var dropDownList = control as DropDownList;
-                if (dropDownList != null)
-                    dropDownList.SelectedIndex = 0;
-}
-        }
-
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             using (PessoaDAO dao = new PessoaDAO())
@@ -153,12 +137,6 @@ namespace Web
             tel.Tipo = tiposTelefone[0];
             telefones.Add(new Telefone());
             atualizarGridTelefone();
-        }
-
-        protected void btnLimpar_Click(object sender, EventArgs e)
-        {
-            limpar();
-            txtNome.Focus();
         }
 
         protected void gridTelefones_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)

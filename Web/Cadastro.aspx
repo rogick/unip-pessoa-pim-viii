@@ -100,10 +100,10 @@
                 <asp:Button ID="btnAdicionarTelefone" runat="server" CssClass="btn btn-info" Text="Novo Telefone" OnClick="btnAdicionarTelefone_Click"   />
             </div>
         </div>
+        <br />
         <div class="row">
             <div class="col-sm-12">
                 <asp:Button ID="btnSalvar" runat="server" CssClass="btn btn-success margin-right" Text="Salvar" OnClick="btnSalvar_Click" />
-                <asp:Button ID="btnLimpar" runat="server" CssClass="btn btn-danger" Text="Limpar" OnClick="btnLimpar_Click" />
             </div>
         </div>
 
