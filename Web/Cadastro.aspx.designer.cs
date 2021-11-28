@@ -24,6 +24,15 @@ namespace Web
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle litTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTitulo;
+
+        /// <summary>
         /// Controle hdId.
         /// </summary>
         /// <remarks>

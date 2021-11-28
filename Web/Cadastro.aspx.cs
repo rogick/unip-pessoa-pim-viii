@@ -19,7 +19,7 @@ namespace Web
 
         List<Telefone> telefones;
 
-        Pessoa pessoa = new Pessoa();
+        protected Pessoa pessoa = new Pessoa();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,6 +74,8 @@ namespace Web
                     telefones = JsonSerializer.Deserialize<List<Telefone>>(json);
                 }
             }
+
+            litTitulo.Text = "Pessoas - " + (pessoa.Id != 0 ? "Alteração" : "Cadastro");
         }
 
         private void popularPessoa()

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <h2>Pessoas - Cadastro</h2>
+        <h2><asp:Literal ID="litTitulo" runat="server" /></h2>
 
         <asp:HiddenField ID="hdId" runat="server" />
         <div class="row">
@@ -60,12 +60,12 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="DDD" ItemStyle-CssClass="form-control-sm" HeaderStyle-CssClass="table-dark">
                             <ItemTemplate>
-                                <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" Text='<%# Eval("Ddd") %>' MaxLength="2" OnTextChanged="txtDdd_TextChanged"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" Text='<%# (int)Eval("Ddd") != 0 ? Eval("Ddd") : "" %>' MaxLength="2" OnTextChanged="txtDdd_TextChanged"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Número" ItemStyle-CssClass="form-control-sm" HeaderStyle-CssClass="table-dark">
                             <ItemTemplate>
-                                <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" Text='<%# Eval("Numero") %>' MaxLength="9" OnTextChanged="txtNumero_TextChanged"></asp:TextBox>
+                                <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" Text='<%# (int)Eval("Numero") != 0 ? Eval("Numero") : "" %>' MaxLength="9" OnTextChanged="txtNumero_TextChanged"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:CommandField ShowDeleteButton="true" DeleteText="Deletar" HeaderStyle-CssClass="table-dark text-center" ItemStyle-CssClass="text-center" ControlStyle-CssClass="btn btn-danger" />

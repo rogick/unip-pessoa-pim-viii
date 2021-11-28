@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="alert alert-success" role="alert">
-        <asp:Label ID="lblMsg" runat="server" CssClass="alert-heading" ></asp:Label>
+        <h4 class="alert-heading"><asp:Literal ID="litMsg" runat="server" /></h4>
+        
     </div>
 </asp:Content>
