@@ -11,9 +11,7 @@ namespace Web
 {
     public partial class Cadastro : System.Web.UI.Page
     {
-
         private static string TELEFONES = "telefones";
-        List<string> estados;
 
         List<TipoTelefone> tiposTelefone;
 
@@ -24,13 +22,7 @@ namespace Web
         protected void Page_Load(object sender, EventArgs e)
         {
             inicializarListasAuxiliares();
-            ddlEstado.DataSource = from i in estados
-                                    select new ListItem()
-                                    {
-                                        Text = i,
-                                        Value = i
-                                    };
-            ddlEstado.DataBind();
+
             if (!Page.IsPostBack)
             {
                 if (Request["cpf"] != null)
@@ -39,7 +31,7 @@ namespace Web
 
                     using (var dao = new PessoaDAO())
                     {
-                        var pessoa = dao.consulte(cpf);
+                        pessoa = dao.consulte(cpf);
                         hdId.Value = pessoa.Id.ToString();
                         txtNome.Text = pessoa.Nome;
                         txtCPF.Text = pessoa.Cpf.ToString();
@@ -90,7 +82,10 @@ namespace Web
             pessoa.Endereco.Numero = Convert.ToInt32(txtNumero.Text);
             pessoa.Endereco.Bairro = txtBairro.Text;
             pessoa.Endereco.Cidade = txtCidade.Text;
-            pessoa.Endereco.Estado = ddlEstado.SelectedValue;
+            if (!String.IsNullOrWhiteSpace(ddlEstado.SelectedValue))
+                pessoa.Endereco.Estado = ddlEstado.SelectedValue;
+            if (!String.IsNullOrWhiteSpace(ddlEstado.SelectedItem?.Value))
+                pessoa.Endereco.Estado = ddlEstado.SelectedItem.Value;
             pessoa.Endereco.Cep = Convert.ToInt32(txtCep.Text);
 
             pessoa.Telefones = new List<Telefone>(telefones);
@@ -98,40 +93,10 @@ namespace Web
 
         private void inicializarListasAuxiliares()
         {
-            estados = new List<string>();
-            estados.Add("");
-            estados.Add("AC");
-            estados.Add("AL");
-            estados.Add("AM");
-            estados.Add("AP");
-            estados.Add("BA");
-            estados.Add("CE");
-            estados.Add("DF");
-            estados.Add("ES");
-            estados.Add("GO");
-            estados.Add("MA");
-            estados.Add("MG");
-            estados.Add("MS");
-            estados.Add("MT");
-            estados.Add("PA");
-            estados.Add("PB");
-            estados.Add("PE");
-            estados.Add("PI");
-            estados.Add("PR");
-            estados.Add("RJ");
-            estados.Add("RN");
-            estados.Add("RO");
-            estados.Add("RR");
-            estados.Add("RS");
-            estados.Add("SC");
-            estados.Add("SE");
-            estados.Add("SP");
-            estados.Add("TO");
-
             tiposTelefone = new List<TipoTelefone>();
-            tiposTelefone.Add(new TipoTelefone(1, "Telefone"));
-            tiposTelefone.Add(new TipoTelefone(2, "Celular"));
-            tiposTelefone.Add(new TipoTelefone(3, "Comercial"));
+            tiposTelefone.Add(new TipoTelefone(1, "TELEFONE"));
+            tiposTelefone.Add(new TipoTelefone(2, "CELULAR"));
+            tiposTelefone.Add(new TipoTelefone(3, "COMERCIAL"));
             tiposTelefone.Add(new TipoTelefone(4, "FAX"));
         }
 
@@ -213,16 +178,13 @@ namespace Web
                 var ddl = e.Row.FindControl("ddlTipoTelefone") as DropDownList;
                 if (ddl != null)
                 {
-                    ddl.DataSource = from tp in tiposTelefone
-                                     select new ListItem()
-                                     {
-                                         Text = tp.Tipo,
-                                         Value = tp.Id.ToString()
-                                     };
+                    ddl.DataSource = from tp in tiposTelefone select new ListItem(tp.Tipo, tp.Id.ToString());
+                    ddl.DataValueField = "Value";
+                    ddl.DataTextField = "Text";
                     ddl.DataBind();
 
                     if (telefones[e.Row.RowIndex]?.Tipo != null)
-                        ddl.SelectedValue = telefones[e.Row.RowIndex]?.Tipo.Tipo;
+                        ddl.SelectedValue = telefones[e.Row.RowIndex]?.Tipo.Id.ToString();
                 }
             }
         }
@@ -233,7 +195,7 @@ namespace Web
             if (gvr != null)
             {
                 var ddl = gvr.FindControl("ddlTipoTelefone") as DropDownList;
-                var tipo = tiposTelefone.Where(tp => tp.Id.ToString() == ddl.SelectedValue || tp.Tipo == ddl.SelectedValue).First();
+                var tipo = tiposTelefone.Where(tp => tp.Id.ToString() == ddl.SelectedValue).First();
                 gvr.DataItem = tipo;
                 telefones[gvr.DataItemIndex].Tipo = tipo;
                 salvarEstadoTelefones();

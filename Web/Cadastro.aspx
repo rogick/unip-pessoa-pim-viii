@@ -38,7 +38,33 @@
             </div>
             <div class="col-md-2 form-group">
                 <asp:Label runat="server" Text="Estado" AssociatedControlID="ddlEstado"></asp:Label>
-                <asp:DropDownList ID="ddlEstado" CssClass="dropdown form-control" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlEstado" CssClass="dropdown form-control" runat="server">
+                    <asp:ListItem Value="AC" Text="AC" />
+                    <asp:ListItem Value="AL" Text="AL" />
+                    <asp:ListItem Value="AM" Text="AM" />
+                    <asp:ListItem Value="BA" Text="BA" />
+                    <asp:ListItem Value="CE" Text="CE" />
+                    <asp:ListItem Value="DF" Text="DF" />
+                    <asp:ListItem Value="ES" Text="ES" />
+                    <asp:ListItem Value="GO" Text="GO" />
+                    <asp:ListItem Value="MA" Text="MA" />
+                    <asp:ListItem Value="MG" Text="MG" />
+                    <asp:ListItem Value="MS" Text="MS" />
+                    <asp:ListItem Value="MT" Text="MT" />
+                    <asp:ListItem Value="PA" Text="PA" />
+                    <asp:ListItem Value="PB" Text="PB" />
+                    <asp:ListItem Value="PE" Text="PE" />
+                    <asp:ListItem Value="PI" Text="PI" />
+                    <asp:ListItem Value="RJ" Text="RJ" />
+                    <asp:ListItem Value="RN" Text="RN" />
+                    <asp:ListItem Value="RO" Text="RO" />
+                    <asp:ListItem Value="RR" Text="RR" />
+                    <asp:ListItem Value="RS" Text="RS" />
+                    <asp:ListItem Value="SC" Text="SC" />
+                    <asp:ListItem Value="SE" Text="SE" />
+                    <asp:ListItem Value="SP" Text="SP" />
+                    <asp:ListItem Value="TO" Text="TO" />
+                </asp:DropDownList>
             </div>
             <div class="col-md-3 form-group">
                 <asp:Label runat="server" Text="CEP" AssociatedControlID="txtCep"></asp:Label>

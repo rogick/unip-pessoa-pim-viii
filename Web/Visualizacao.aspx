@@ -3,44 +3,44 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <h1>Pessoas - Visualização</h1>
+        <h2>Pessoas - Visualização</h2>
 
         <div class="row">
             <div class="col-md-8 form-group">
                 <asp:Label runat="server" Text="Nome"></asp:Label>
-                <asp:Label runat="server" ID="lblNome" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblNome" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
             <div class="col-md-4 form-group">
                 <asp:Label runat="server" Text="CPF"></asp:Label>
-                <asp:Label runat="server" ID="lblCPF" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblCPF" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 form-group">
                 <asp:Label runat="server" Text="Logradouro"></asp:Label>
-                <asp:Label runat="server" ID="lblLogradouro" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblLogradouro" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
             <div class="col-md-4 form-group">
                 <asp:Label runat="server" Text="Número"></asp:Label>
-                <asp:Label runat="server" ID="lblNumero" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblNumero" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 form-group">
                 <asp:Label runat="server" Text="Bairro"></asp:Label>
-                <asp:Label runat="server" ID="lblBairro" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblBairro" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
             <div class="col-md-3 form-group">
                 <asp:Label runat="server" Text="Cidade"></asp:Label>
-                <asp:Label runat="server" ID="lblCidade" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblCidade" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
             <div class="col-md-2 form-group">
                 <asp:Label runat="server" Text="Estado"></asp:Label>
-                <asp:Label runat="server" ID="lblEstado" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblEstado" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
             <div class="col-md-3 form-group">
                 <asp:Label runat="server" Text="CEP" ></asp:Label>
-                <asp:Label runat="server" ID="lblCep" CssClass="form-control"></asp:Label>
+                <asp:Label runat="server" ID="lblCep" CssClass="font-weight-bold d-block"></asp:Label>
             </div>
         </div>
         <div class="row">
