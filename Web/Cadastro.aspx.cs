@@ -67,7 +67,7 @@ namespace Web
                 }
             }
 
-            litTitulo.Text = "Pessoas - " + (pessoa.Id != 0 ? "Alteração" : "Cadastro");
+            litTitulo.Text = "Pessoas - " + (String.IsNullOrEmpty(hdId.Value) ? "Cadastro" : "Alteração");
         }
 
         private void popularPessoa()
