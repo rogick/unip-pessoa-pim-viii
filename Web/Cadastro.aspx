@@ -68,7 +68,7 @@
                                 <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" Text='<%# Eval("Numero") %>' MaxLength="9" OnTextChanged="txtNumero_TextChanged"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField ShowDeleteButton="true" DeleteText="Deletar" HeaderText="Deletar" HeaderStyle-CssClass="table-dark" />
+                        <asp:CommandField ShowDeleteButton="true" DeleteText="Deletar" HeaderStyle-CssClass="table-dark text-center" ItemStyle-CssClass="text-center" ControlStyle-CssClass="btn btn-danger" />
                     </Columns>
                 </asp:GridView>
                 <asp:Button ID="btnAdicionarTelefone" runat="server" CssClass="btn btn-info" Text="Novo Telefone" OnClick="btnAdicionarTelefone_Click"   />
