@@ -48,7 +48,7 @@ namespace Web
                 var pessoa = dao.consulte(cpf);
                 dao.exclua(pessoa);
 
-                Server.Transfer("Mensagem.aspx?mensagem=Pessoa excluída com sucesso!", true);
+                Server.Transfer("Mensagem.aspx?msg=Pessoa excluída com sucesso!", true);
             }
         }
 

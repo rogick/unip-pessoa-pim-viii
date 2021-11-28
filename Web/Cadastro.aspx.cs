@@ -57,7 +57,9 @@ namespace Web
                 else
                 {
                     telefones = new List<Telefone>();
-                    telefones.Add(new Telefone());
+                    var tel = new Telefone();
+                    tel.Tipo = tiposTelefone[0];
+                    telefones.Add(tel);
                 }
 
                 atualizarGridTelefone();
@@ -155,12 +157,12 @@ namespace Web
                 if (pessoa.Id == 0)
                 {
                     dao.insira(pessoa);
-                    Server.Transfer("Mensagem.aspx?mensagem=Pessoa cadastrada com sucesso!", true);
+                    Server.Transfer("Mensagem.aspx?msg=Pessoa cadastrada com sucesso!", true);
                 }
                 else
                 {
                     dao.altere(pessoa);
-                    Server.Transfer("Mensagem.aspx?mensagem=Pessoa alterada com sucesso!", true);
+                    Server.Transfer("Mensagem.aspx?msg=Pessoa alterada com sucesso!", true);
                 }
             }
         }
@@ -180,6 +182,8 @@ namespace Web
 
         protected void btnAdicionarTelefone_Click(object sender, EventArgs e)
         {
+            Telefone tel = new Telefone();
+            tel.Tipo = tiposTelefone[0];
             telefones.Add(new Telefone());
             atualizarGridTelefone();
         }
